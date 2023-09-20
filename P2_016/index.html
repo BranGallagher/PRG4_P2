@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>P2_016</title>
+</head>
+<body>
+    <div class="header1">P2_016</div>
+
+    <form onsubmit="return validate()">
+    <table>
+        <tbody>
+            <tr>
+        <tr>
+        </tr>
+        <tr>
+            <td>Nama</td>
+            <td>:</td>
+            <td>
+                <input type="text" id="nama"/>
+            </td>
+            <td id="error_nama" style="color: red;"></td>
+        </tr>
+        <tr>
+            <td>Matakuliah</td>
+            <td>:</td>
+            <td>
+                <select id="matakuliah">
+                    <option value="">Pilih Mata Kuliah</option>
+                    <option value="Matematika">Matematika</option>
+                    <option value="Fisika">Fisika</option>
+                    <option value="Kimia">Kimia</option>
+                </select>
+            </td>
+            <td id="error_matakuliah" style="color: red;"></td>
+        </tr>
+        <tr>
+            <td>Nilai</td>
+            <td>:</td>
+            <td>
+                <input type="number" min="1" max="100" id="nilai">
+            </td>
+            <td id="error_nilai" style="color: red;"></td>
+        </tr>
+        <td>
+            <button id="batalbtn" type="reset">
+            Batal
+            </button>
+        </td>
+        <td>
+            <input type="submit"value="Kirim"/>
+        </td>
+        </tbody>
+    </table>
+</form>
+<script>
+    function validateForm() {
+        let nama = document.getElementById("Nama").value;
+        let matakuliah = document.getElementById("matakuliah").value;
+        let nilai = document.getElementById("Nilai").value;
+
+        if (nama.trim() == "") {
+            document.getElementById("error_nama").innerText = "Harap isi field Nama!";
+            return false;
+        } else {
+            let namapet = /^[a-zA-Z\s]*$/;
+            if (!namapet.test(nama.trim())) {
+                document.getElementById("error_nama").innerText = "Nama Harus berisi Huruf atau spasi!";
+                return false;
+            } else {
+                document.getElementById("error_nama").innerText = "";
+            }
+        }
+
+        if (matakuliah == "") {
+            document.getElementById("error_matakuliah").innerText = "Harap isi Matakuliah!";
+            return false;
+        } else {
+            document.getElementById("error_matakuliah").innerText = "";
+        }
+
+        if (nilai === "") {
+            document.getElementById("error_nilai").innerText = "Harap isi field Nilai!";
+            return false;
+        } else {
+            document.getElementById("error_nilai").innerText = "";
+        }
+        
+        return true;
+    }
+</script>
+
+    
+</body>
+</html>
